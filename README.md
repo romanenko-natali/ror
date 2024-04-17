@@ -1,1 +1,1 @@
-# ror
+https://github.com/rubocop/ruby-style-guide
