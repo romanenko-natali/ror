@@ -1,5 +1,16 @@
 #Створити модуль Validation з двома методами: match(pattern, text), dateInRange(from, to, date).
 module Validation
+  def self.validate_name(name)
+    raise ArgumentError, "Неправильна назва групи" unless match(/^[A-Za-z0-9\s'’]+$/, name)
+  end
+
+  def self.validate_student(name, surname, birthdate, student_id)
+    raise ArgumentError, "Неправильне ім'я" unless match(/^[A-Za-z'’]+$/, name)
+    raise ArgumentError, "Неправильне прізвище" unless match(/^[A-Za-z]+$/, surname)
+    raise ArgumentError, "Неправильна дата народження" unless birthdate.is_a?(Date)
+    raise ArgumentError, "Неправильний номер студентського квитка" unless match(/^\d{8}$/, student_id)
+  end
+
   def self.match(pattern, text)
     !!text.match(pattern)
   end
