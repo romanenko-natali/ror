@@ -15,5 +15,5 @@ def manipulate_string(s)
 end
 
 # Test cases
-puts manipulate_string("something")  # Output: "StRiNg"
-puts manipulate_string("Weird string case")  # Output: "WeIrD StRiNg CaSe"
+puts manipulate_string("something") 
+puts manipulate_string("Weird string case") 
