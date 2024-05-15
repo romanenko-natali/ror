@@ -13,9 +13,9 @@
 #відсортувати студентів групи в алфавітному порядку 
 #(спочатку прізвище, потім ім'я)
 
-require_relative 'validation'
 require_relative 'student'
 require_relative 'group'
+require 'date'
 
 
 #Пошукати студентів по заліковці, 
@@ -38,15 +38,15 @@ student5 = Student.new("Miha", "Ylo", Date.new(1992, 11, 5), "55555555")
 
 
 #Створити дві групи, розділити студентів по групах. 
-group1 = Group.new("Group 1")
-group2 = Group.new("Group 2")
+group1 = Group.new("group1")
+group2 = Group.new("group2")
 
 group1.add_student(student1)
 group1.add_student(student2)
 group1.add_student(student3)
 group2.add_student(student4)
 group2.add_student(student5)
-group1.add_student(student6)
+
 
 
 #відсортувати студентів групи в алфавітному порядку 
