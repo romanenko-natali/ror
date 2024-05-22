@@ -22,43 +22,56 @@
 **3 task**
 
 User:
-A User can create multiple Projects.
+
+- A User can create multiple Projects.
 
 Project:
-A Project can also be associated with many Tasks through a join table.
+
+- A Project can also be associated with many Tasks through a join table.
 
 Task:
-A Task can be associated with multiple Projects.
+- A Task can be associated with multiple Projects.
 
 User Management
+
     User Registration:
-        Allow new users to sign up with a name and email address.
+        - Allow new users to sign up with a name and email address.
+    
     User Authentication:
-        Allow users to log in and log out.
+        - Allow users to log in and log out.
+    
     User Profile:
-        Allow users to view and edit their profile information.
+        - Allow users to view and edit their profile information.
 
 Project Management
+    
     Create Project:
-        Allow users to create new projects with a title and description.
+        - Allow users to create new projects with a title and description.
+    
     View Projects:
-        Allow users to view a list of their projects.
-        Allow users to view details of a specific project.
+        - Allow users to view a list of their projects.
+        - Allow users to view details of a specific project.
+    
     Edit Project:
-        Allow users to edit the title and description of their projects.
+        - Allow users to edit the title and description of their projects.
+    
     Delete Project:
-        Allow users to delete a project.
+        - Allow users to delete a project.
 
 Task Management
+    
     Create Task:
-        Allow users to create new tasks with a title and description.
+        - Allow users to create new tasks with a title and description.
+    
     View Tasks:
-        Allow users to view a list of tasks associated with a specific project.
-        Allow users to view details of a specific task.
+        - Allow users to view a list of tasks associated with a specific project.
+        - Allow users to view details of a specific task.
+    
     Edit Task:
-        Allow users to edit the title and description of tasks.
+        = Allow users to edit the title and description of tasks.
+    
     Delete Task:
-        Allow users to delete a task.
+        - Allow users to delete a task.
 
 Task Association with Projects
     Assign Task to Project:
