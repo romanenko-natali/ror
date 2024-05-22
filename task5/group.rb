@@ -5,8 +5,6 @@ require_relative 'student'
 class Group
   attr_accessor :name, :students
 
-  NAME_PATTERN = /^[a-zA-Z0-9 ]{2,50}$/
-
   def initialize(name)
     @name = validate_name(name)
     @students = []
@@ -27,7 +25,7 @@ class Group
   private
 
   def validate_name(name)
-    raise InvalidDataError, "Group name is invalid" unless Validation.match(NAME_PATTERN, name)
+    raise InvalidDataError, "Group name is invalid" unless Validation.validate_group_name(name)
     name
   end
 end
