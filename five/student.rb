@@ -5,12 +5,11 @@ class Student
 
   attr_accessor :name, :surname, :birthdate, :student_id
 
-    def initialize(name, surname, birthdate, student_id)
-      @name = name
-      @surname = surname
-      @birthdate = birthdate
-      @student_id = student_id
-      Validation.validate_student(@name, @surname, @birthdate, @student_id)
-    end
-
+  def initialize(name, surname, birthdate, student_id)
+    @name = name
+    @surname = surname
+    @birthdate = birthdate
+    @student_id = student_id
+    validate_student(@name, @surname, @birthdate, @student_id)
+  end
 end
