@@ -5,12 +5,11 @@ class Group
 
   attr_accessor :name, :students
 
-    def initialize(name)
-      @name = name
-      @students = []
-      Validation.validate_name(@name)
-    end
-
+  def initialize(name)
+    @name = name
+    @students = []
+    validate_name(@name)
+  end
 
   def add_student(student)
     @students << student
