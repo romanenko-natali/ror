@@ -1,0 +1,16 @@
+<div id="<%= dom_id project %>" class="project-details">
+  <p class="project-title">
+    <strong>Title:</strong>
+    <%= project.title %>
+  </p>
+
+  <p class="project-description">
+    <strong>Description:</strong>
+    <%= project.description %>
+  </p>
+
+ <p class="project-user">
+    <strong>User:</strong>
+    <%= link_to project.user.name, user_path(project.user) %>
+  </p>
+</div>
