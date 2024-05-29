@@ -1,0 +1,87 @@
+module Validation
+  def self.match(pattern, text)
+    raise "Invalid text" unless text =~ pattern
+  end
+
+  def self.date_in_range(from, to, date)
+    raise "Invalid date" unless from <= date && date <= to
+  end
+end
+
+# student.rb
+class Student
+  attr_reader :name, :surname, :birth_date, :record_book_number
+
+  def initialize(name, surname, birth_date, record_book_number)
+    @name = name
+    @surname = surname
+    Validation.match(/^[A-Za-z]+$/, name)
+    Validation.match(/^[A-Za-z]+$/, surname)
+    Validation.date_in_range(Date.new(1900, 1, 1), Date.today, birth_date)
+    @birth_date = birth_date
+    @record_book_number = record_book_number
+    Validation.match(/^\d+$/, record_book_number)
+  end
+end
+
+# group.rb
+class Group
+  attr_reader :name, :students
+
+  def initialize(name)
+    @name = name
+    Validation.match(/^[A-Za-z0-9]+$/, name)
+    @students = []
+  end
+
+  def add_student(student)
+    @students << student if student.instance_of?(Student)
+  end
+
+  def sort_students
+    @students.compact.sort_by! { |student| [student.surname, student.name] }
+  end
+end
+
+# main.rb
+require 'date'
+
+students = []
+begin
+  students << Student.new("John", "Doe", Date.new(1990, 1, 1), "12345")
+  students << Student.new("Jane", "Doe", Date.new(1991, 1, 1), "67890")
+  students << Student.new("Invasfdlid", "Name", Date.new(1992, 1, 1), "14587") # should raise error
+  students << Student.new("Valid", "Atudent", Date.new(1993, 1, 1), "11111")
+  students << Student.new("Another", "Student", Date.new(1994, 1, 1), "22222")
+rescue => e
+  puts "Error: #{e.message}"
+end
+
+group1 = Group.new("Group1")
+group2 = Group.new("Group2")
+
+group1.add_student(students[0])
+group1.add_student(students[2]) # should raise error
+group2.add_student(students[1])
+group2.add_student(students[3])
+group2.add_student(students[4])
+
+group1.sort_students
+group2.sort_students
+
+puts "Group1 students:"
+group1.students.each do |student|
+  puts "#{student.surname} #{student.name} (#{student.record_book_number})"
+end
+
+puts "Group2 students:"
+group2.students.each do |student|
+  puts "#{student.surname} #{student.name} (#{student.record_book_number})"
+end
+
+puts "Search by record book number:"
+students.each do |student|
+  if student && student.record_book_number == "11111"
+    puts "#{student.surname} #{student.name} (#{student.record_book_number})"
+  end
+end
