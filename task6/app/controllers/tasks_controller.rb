@@ -1,12 +1,13 @@
 class TasksController < ApplicationController
-  before_action :set_project
+  before_action :authenticate_user!
+  before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_project, only: [:index, :new, :create]
 
   def index
     @tasks = @project.tasks
   end
 
   def show
-    @task = @project.tasks.find(params[:id])
   end
 
   def new
@@ -17,32 +18,33 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     if @task.save
       @project.tasks << @task
-      redirect_to project_task_path(@project, @task)
+      redirect_to project_tasks_path(@project), notice: 'Task was successfully created.'
     else
-      render 'new'
+      render :new
     end
   end
 
   def edit
-    @task = @project.tasks.find(params[:id])
   end
 
   def update
-    @task = @project.tasks.find(params[:id])
     if @task.update(task_params)
-      redirect_to project_task_path(@project, @task)
+      redirect_to @task, notice: 'Task was successfully updated.'
     else
-      render 'edit'
+      render :edit
     end
   end
 
   def destroy
-    @task = @project.tasks.find(params[:id])
     @task.destroy
-    redirect_to project_tasks_path(@project)
+    redirect_to tasks_url, notice: 'Task was successfully destroyed.'
   end
 
   private
+
+  def set_task
+    @task = Task.find(params[:id])
+  end
 
   def set_project
     @project = Project.find(params[:project_id])
