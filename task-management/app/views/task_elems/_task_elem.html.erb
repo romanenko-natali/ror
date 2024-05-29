@@ -1,0 +1,23 @@
+<div id="<%= dom_id task_elem %>">
+  <p>
+    <strong>Title:</strong>
+    <%= task_elem.title %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= task_elem.description %>
+  </p>
+
+  <p>
+    <strong>Published:</strong>
+    <%= task_elem.published %>
+  </p>
+
+  <p>
+    <strong>Project:</strong>
+    <% project = Project.find_by(id: task_elem.project_id) %>
+    <%= project.title if project %>
+  </p>
+
+</div>

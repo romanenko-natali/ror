@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Task Elem Details</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      justify-content: center;
+    }
+
+    .container {
+      width: 80%;
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .container h1 {
+      margin-bottom: 20px;
+    }
+
+    .container p {
+      color: green;
+      margin-bottom: 20px;
+    }
+
+    .task-details {
+      margin-bottom: 20px;
+    }
+
+    .links {
+      text-align: center;
+    }
+
+    .links a,
+    .links form {
+      text-decoration: none;
+      color: #007bff;
+      border: 1px solid #007bff;
+      padding: 10px 20px;
+      border-radius: 4px;
+      transition: background-color 0.3s, color 0.3s;
+      margin: 0 5px;
+      display: inline-block;
+    }
+
+    .links a:hover,
+    .links form:hover {
+      background-color: #007bff;
+      color: #fff;
+    }
+
+    .links form {
+      display: inline;
+    }
+
+    .links form input[type="submit"] {
+      background: none;
+      border: none;
+      padding: 0;
+      color: inherit;
+      cursor: pointer;
+      font: inherit;
+    }
+
+    .links form input[type="submit"]:hover {
+      background-color: #007bff;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <p><%= notice %></p>
+
+    <div class="task-details">
+      <%= render @task_elem %>
+    </div>
+
+    <div class="links">
+      <%= link_to "Edit this task elem", edit_task_elem_path(@task_elem) %> |
+      <%= link_to "Back to task elems", task_elems_path %>
+      <%= button_to "Destroy this task elem", @task_elem, method: :delete, form: { data: { confirm: "Are you sure?" } } %>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Projects</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
+
+    #projects {
+      width: 80%;
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .project {
+      margin-bottom: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+    }
+
+    .project h2 {
+      margin-bottom: 5px;
+      color: #007bff;
+    }
+
+    .project p {
+      margin: 5px 0;
+    }
+
+    .project a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    .project a:hover {
+      text-decoration: underline;
+    }
+
+    #new_project_link {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    #new_project_link a {
+      color: #fff;
+      background-color: #007bff;
+      border: 1px solid #007bff;
+      border-radius: 4px;
+      padding: 10px 20px;
+      text-decoration: none;
+    }
+
+    #new_project_link a:hover {
+      background-color: #0056b3;
+      border-color: #0056b3;
+    }
+
+    .home_link {
+      display: block;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .home_link a {
+      color: #fff;
+      background-color: #007bff;
+      border: 1px solid #007bff;
+      border-radius: 4px;
+      padding: 10px 20px;
+      text-decoration: none;
+    }
+
+    .home_link a:hover {
+      background-color: #0056b3;
+      border-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <p style="color: green;"><%= notice %></p>
+
+  <h1>Projects</h1>
+
+  <div id="projects">
+    <% @projects.each do |project| %>
+      <div class="project">
+        <%= render project %>
+        <p>
+          <%= link_to "Show this project", project %>
+        </p>
+      </div>
+    <% end %>
+  </div>
+
+  <div id="new_project_link">
+    <%= link_to "New project", new_project_path %>
+  </div>
+
+  <div class="home_link">
+    <%= link_to "Home", root_path %>
+  </div>
+</body>
+</html>

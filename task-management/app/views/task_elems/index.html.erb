@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Task Elems</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .title {
+      text-align: center;
+      margin-top: 20px;
+      color: #333;
+    }
+
+    #task_items_container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 80%;
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .task_item {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .task_item p {
+      text-align: center;
+    }
+
+    .new_task_link,
+    .home_link {
+      margin-top: 20px;
+    }
+
+    .new_task_link a,
+    .home_link a {
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 5px;
+      text-decoration: none;
+      color: #fff;
+      background-color: #007bff;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .new_task_link a:hover,
+    .home_link a:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <p style="color: green; text-align: center;"><%= notice %></p>
+
+  <h1 class="title">Task Elems</h1>
+
+  <div id="task_items_container">
+    <% @task_elems.each do |task_elem| %>
+      <div class="task_item">
+        <%= render task_elem %>
+        <p>
+          <%= link_to "Show this task item", task_elem %>
+        </p>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="new_task_link">
+    <%= link_to "New task elem", new_task_elem_path %>
+  </div>
+
+  <div class="home_link">
+    <%= link_to "Home", root_path %>
+  </div>
+</body>
+</html>
