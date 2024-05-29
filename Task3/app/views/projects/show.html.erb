@@ -1,0 +1,85 @@
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Project Details</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      width: 80%;
+      margin: 0 auto;
+      padding: 2rem;
+      background-color: #fff;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      margin-top: 2rem;
+    }
+    h1 {
+      font-size: 36px;
+      color: #333;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    p {
+      font-size: 18px;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+    strong {
+      color: #007bff;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1rem;
+      background-color: #007bff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+      margin-bottom: 1rem; /* Додали відступ після кнопки */
+    }
+    .task-list {
+      list-style: none;
+      padding: 0;
+    }
+    .task-item {
+      background-color: #f9f9f9;
+      border-radius: 4px;
+      padding: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    .task-link {
+      color: #007bff;
+      text-decoration: none;
+    }
+    .task-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Project Details</h1>
+    <a href="<%= new_project_task_path(@project) %>" class="btn">Create New Task</a>
+    <div>
+      <p><strong>Title:</strong> <%= @project.title %></p>
+      <p><strong>Description:</strong> <%= @project.description %></p>
+    </div>
+    <h2>Task List</h2>
+    <ul class="task-list">
+      <% @project.tasks.each do |task| %>
+        <li class="task-item">
+          <p><strong>Title:</strong> <a href="<%= project_task_path(@project, task) %>" class="task-link"><%= task.title %></a></p>
+          <p><strong>Description:</strong> <%= task.description %></p>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</body>
+</html>

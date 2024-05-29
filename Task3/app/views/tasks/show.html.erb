@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Task Details</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      width: 80%;
+      margin: 0 auto;
+      padding: 2rem;
+      background-color: #fff;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      margin-top: 2rem;
+    }
+    h1 {
+      font-size: 36px;
+      color: #333;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    p {
+      font-size: 18px;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+    strong {
+      color: #007bff;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1rem;
+      background-color: #dc3545; 
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+    .btn:hover {
+      background-color: 
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Task Details</h1>
+    <div>
+      <p><strong>Title:</strong> <%= @task.title %></p>
+      <p><strong>Description:</strong> <%= @task.description %></p> 
+      <p><strong>Project:</strong> <%= @project.id %></p>
+      <form action="<%= project_tasks_path(@project.id, @task) %>" method="post">
+       <%= hidden_field_tag :_method, :delete %>
+       <%= link_to "Delete Task", project_task_path(@project.id, @task), method: :delete, class: "btn" %>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
