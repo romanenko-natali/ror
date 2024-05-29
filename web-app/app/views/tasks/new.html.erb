@@ -1,9 +1,28 @@
-<h1>New task</h1>
+<h1>New Task</h1>
 
-<%= render "form", task: @task %>
+<%= form_with(model: [@project, @task], local: true) do |form| %>
+  <% if @task.errors.any? %>
+    <div class="alert alert-danger">
+      <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
+      <ul>
+        <% @task.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-<br>
+  <div class="mb-3">
+    <%= form.label :title, class: "form-label" %>
+    <%= form.text_field :title, class: "form-control" %>
+  </div>
 
-<div>
-  <%= link_to "Back to tasks", tasks_path %>
-</div>
+  <div class="mb-3">
+    <%= form.label :description, class: "form-label" %>
+    <%= form.text_area :description, class: "form-control", rows: 4 %>
+  </div>
+
+  <div>
+    <%= form.submit "Create Task", class: "btn btn-primary" %>
+  </div>
+<% end %>

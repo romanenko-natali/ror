@@ -1,10 +1,14 @@
-<p style="color: green"><%= notice %></p>
+<h1>Task Details</h1>
 
-<%= render @task %>
+<p>
+  <strong>Title:</strong>
+  <%= @task.title %>
+</p>
 
-<div>
-  <%= link_to "Edit this task", edit_task_path(@task) %> |
-  <%= link_to "Back to tasks", tasks_path %>
+<p>
+  <strong>Description:</strong>
+  <%= @task.description %>
+</p>
 
-  <%= button_to "Destroy this task", @task, method: :delete %>
-</div>
+<%= link_to "Edit", edit_project_task_path(@project, @task), class: "btn btn-warning" %> |
+<%= link_to "Back", project_tasks_path(@project), class: "btn btn-secondary" %>

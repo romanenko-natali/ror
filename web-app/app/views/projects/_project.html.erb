@@ -1,16 +1,32 @@
-<div id="<%= dom_id project %>" class="project-details">
-  <p class="project-title">
-    <strong>Title:</strong>
-    <%= project.title %>
-  </p>
+<div id="<%= dom_id @project %>">
+      <h1 class="project-title">
+        <strong>Title:</strong>
+        <%= @project.title %>
+      </h1>
+    <div class="project-details">
+      <p class="project-description">
+        <strong>Description:</strong>
+        <%= @project.description %>
+      </p>
 
-  <p class="project-description">
-    <strong>Description:</strong>
-    <%= project.description %>
-  </p>
-
- <p class="project-user">
-    <strong>User:</strong>
-    <%= link_to project.user.name, user_path(project.user) %>
-  </p>
+      <p class="project-user">
+        <strong>User:</strong>
+        <%= link_to @project.user.name, user_path(@project.user) %>
+      </p>
+       <div class="project-tasks">
+      <h2>Tasks</h2>
+      <% if @tasks.any? %>
+        <ul>
+          <% @tasks.each do |task| %>
+            <li>
+              <strong>Title:</strong> <%= task.title %><br>
+              <strong>Description:</strong> <%= task.description %><br>
+            </li>
+          <% end %>
+        </ul>
+      <% else %>
+        <p>No tasks available for this project.</p>
+      <% end %>
+    </div>
+    </div>
 </div>

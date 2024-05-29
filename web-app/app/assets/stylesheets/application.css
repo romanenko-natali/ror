@@ -376,6 +376,7 @@ label {
 }
 
 input[type="email"],
+input[type="text"],
 input[type="password"],
 input[type="checkbox"] {
     width: 100%;
@@ -435,7 +436,7 @@ input[type="checkbox"] {
 }
 
 .actions a,
-.actions button {
+.actions input {
     margin-right: 10px;
     margin-bottom: 10px;
 }
@@ -503,3 +504,4 @@ input[type="checkbox"] {
     background-color: #0069d9;
     border-color: #0062cc;
 }
+

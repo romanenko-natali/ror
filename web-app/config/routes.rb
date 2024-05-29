@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :tasks
-  resources :projects
+  resources :projects do
+      resources :tasks
+  end
   devise_for :users
   resources :users, only: [:show, :edit, :update, :destroy]
 

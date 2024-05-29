@@ -1,11 +1,10 @@
-<div class="project-form-edit">
-<%= form_with(model: project) do |form| %>
-  <% if project.errors.any? %>
+<%= form_with(model: @project) do |form| %>
+  <% if @project.errors.any? %>
     <div class="alert alert-danger">
-      <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
+      <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
 
       <ul>
-        <% project.errors.each do |error| %>
+        <% @project.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>
@@ -29,7 +28,6 @@
   </div>
 
   <div>
-    <%= form.submit "Create Project", class: "btn btn-primary" %>
+    <%= form.submit "Save Project", class: "btn btn-primary" %>
   </div>
 <% end %>
-</div>
