@@ -1,0 +1,8 @@
+<!-- app/views/comments/_form.html.erb -->
+<%= form_with(model: [ @commentable, @commentable.comments.build ]) do |f| %>
+  <div class="field">
+    <%= f.label :content %>
+    <%= f.text_area :content %>
+  </div>
+  <%= f.submit 'Post Comment' %>
+<% end %>
