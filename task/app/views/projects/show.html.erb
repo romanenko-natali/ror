@@ -1,0 +1,38 @@
+<head>
+  <%= stylesheet_link_tag 'projects', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'headline', media: 'all' %>
+</head>
+<div class="header-container">
+  <h1 class="project-heading"><%= @project.title %></h1>
+  <div class="header-links">
+    <%= link_to "Projects", projects_path %>
+    <%= link_to "Tasks", todos_path %>
+    <%= link_to "Account", user_path(current_user) %>
+    <%= link_to 'Logout', logout_path, data: { confirm: 'Are you sure you want to logout?' } %>
+  </div>
+</div>  
+
+
+<div class="project-info-container">
+  <table>
+    <tr>
+      <td>
+        <h5><strong>Description:</strong> <%= @project.description %></h5>
+      </td>
+      <td>
+        <div class="button-container">
+        <% if @editable %>
+          <%= link_to "Edit", edit_project_path(@project), class: "button" %>
+          <%= link_to 'Delete', delete_project_path(@project), class: 'button' %>
+        <% end %>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <h5><strong>Tasks:</strong></h5>
+  <ul>
+    <% @project.todos.each do |todo| %>
+      <li><%= todo.title %></li>
+    <% end %>
+  </ul>
+</div>

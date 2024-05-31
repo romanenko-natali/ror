@@ -1,0 +1,33 @@
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #666; 
+  height: auto; 
+}
+
+.header-links a {
+  color: black;
+  margin-right: 20px;
+  text-decoration: none;
+  font-size: medium;
+}
+
+.header-links a:hover {
+  color: #ccc;
+}
+
+.project-heading {
+  margin: 10px; 
+  margin-left: 15px;
+}
+
+.dashboard-separator {
+  border: 2px solid #ccc; /* Change color and style as needed */
+  margin-bottom: 20px; /* Adjust spacing as needed */
+}
+  
+body {
+  background-color: aliceblue;
+  font-family: 'Superclarendon', 'Bookman Old Style', 'URW Bookman', 'URW Bookman L', 'Georgia Pro', Georgia, serif;
+}
