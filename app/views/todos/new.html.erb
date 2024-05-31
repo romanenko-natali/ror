@@ -1,0 +1,31 @@
+<head>
+  <%= stylesheet_link_tag 'todos', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'headline', media: 'all' %>
+</head>
+
+<div class="header-container">
+  <h1 class="project-heading">New task</h1>
+  <div class="header-links">
+    <%= link_to "Projects", projects_path %>
+    <%= link_to "Tasks", todos_path %>
+    <%= link_to "Account", user_path(current_user) %>
+    <%= link_to 'Logout', logout_path, data: { confirm: 'Are you sure you want to logout?' } %>
+  </div>
+</div>   
+
+<div class="todo-info-container">
+    <%= form_with(model: @todo, url: todos_path) do |form| %>
+      <div class="field">
+        <%= form.label :title %>
+        <%= form.text_field :title, class: "form-control" %>
+      </div>
+      <div class="field">
+        <%= form.label :description %>
+        <%= form.text_area :description, class: "form-control" %>
+      </div>
+    
+      <div class="actions">
+        <%= form.submit "Create Task", class: "button" %>
+      </div>
+    <% end %>   
+</div>    
