@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Project Details</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
+
+    #project-details {
+      width: 80%;
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    h2 {
+      margin-bottom: 10px;
+      color: #007bff;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 5px;
+    }
+
+    li a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    li a:hover {
+      text-decoration: underline;
+    }
+
+    .buttons {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .buttons a,
+    .buttons form {
+      color: #fff;
+      background-color: #007bff;
+      border: 1px solid #007bff;
+      border-radius: 4px;
+      padding: 10px 20px;
+      text-decoration: none;
+      display: inline-block;
+      margin-right: 10px;
+    }
+
+    .buttons a:hover,
+    .buttons form:hover {
+      background-color: #0056b3;
+      border-color: #0056b3;
+    }
+
+    .buttons form input[type="submit"] {
+      background: none;
+      border: none;
+      padding: 0;
+      color: inherit;
+      cursor: pointer;
+      font: inherit;
+    }
+  </style>
+</head>
+<body>
+  <p style="color: green;"><%= notice %></p>
+
+  <div id="project-details">
+    <%= render @project %>
+
+    <h2>Task elements:</h2>
+    <ul>
+      <% @task_elems.each do |task_elem| %>
+        <li><%= link_to task_elem.title, task_elem %></li>
+      <% end %>
+    </ul>
+
+    <div class="buttons">
+      <%= link_to "Edit this project", edit_project_path(@project) %>
+      <%= link_to "Back to projects", projects_path %>
+      <%= button_to "Destroy this project", @project, method: :delete, form: { data: { confirm: "Are you sure?" } } %>
+    </div>
+  </div>
+</body>
+</html>
