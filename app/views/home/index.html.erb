@@ -1,0 +1,12 @@
+<% if user_signed_in? %>
+  <div class="authenticated-user">
+    <div>Welcome <%= current_user.email %></div>
+    <%= link_to "Edit Account", edit_user_registration_path %>
+    <%= link_to 'View My Projects', projects_path, class: 'btn btn-primary' %>
+    <%= button_to "Sign out", destroy_user_session_path, method: :delete,  class: 'sign-out' %>
+  </div>
+<% else %>
+  <div class="unauthenticated-user">
+    <%= button_to "Sign in", new_user_session_path %>
+  </div>
+<% end %>
