@@ -4,15 +4,10 @@ require_relative 'validation'
 require_relative 'student'
 
 class Group
-  include Validation
-
-  attr_accessor :name, :students
-
-  NAME_PATTERN = /^[A-Z][a-zA-Z0-9\s]+$/
+  attr_reader :name, :students
 
   def initialize(name)
-    raise "Invalid group name" unless Validation.match(NAME_PATTERN, name)
-
+    raise "Invalid group name" unless Validation.match(/^[a-zA-Z\s]+$/, name)
     @name = name
     @students = []
   end
