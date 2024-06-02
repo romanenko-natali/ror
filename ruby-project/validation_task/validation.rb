@@ -5,7 +5,9 @@ module Validation
     !!(text =~ pattern)
   end
 
-  def self.date_in_range(from, to, date)
-    from <= date && date <= to
+  def self.dateInRange(from, to, date)
+    Date.parse(from) <= Date.parse(date) && Date.parse(date) <= Date.parse(to)
+  rescue ArgumentError
+    false
   end
 end
