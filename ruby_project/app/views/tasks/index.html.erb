@@ -1,0 +1,19 @@
+
+
+<h1>Tasks</h1>
+
+<%= link_to "New Task", new_project_task_path(@project) %>
+
+<ul class="tasks">
+  <% @tasks.each do |task| %>
+    <li>
+      <h2><%= task.title %></h2>
+
+      <%= link_to "View", project_task_path(@project, task) %>
+      <%= link_to "Edit", edit_project_task_path(@project, task) %>
+      <%= link_to "Delete", project_task_path(@project, task), method: :delete, data: { confirm: 'Are you sure?' }, class: "delete-link" %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "Back to Projects", projects_path %>
