@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f0f2f5;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      width: 80%;
+      max-width: 600px;
+      padding: 2rem;
+      background-color: #fff;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+    }
+    h1 {
+      font-size: 2.5rem;
+      color: #333;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .info {
+      font-size: 1.2rem;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+    .info-label {
+      font-weight: bold;
+      margin-right: 0.5rem;
+    }
+    .back-to-dashboard-btn {
+      display: block;
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .back-to-dashboard-btn a {
+      background-color: #17a2b8;
+      color: #fff;
+      text-decoration: none;
+      padding: 0.75rem 2rem;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      transition: background-color 0.3s ease;
+    }
+    .back-to-dashboard-btn a:hover {
+      background-color: #138496;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>User Profile</h1>
+    <div class="info">
+      <span class="info-label">Name:</span> <%= @user.name %>
+    </div>
+    <div class="info">
+      <span class="info-label">Email:</span> <%= @user.email %>
+    </div>
+    <div class="back-to-dashboard-btn">
+      <%= link_to "Back to Dashboard", dashboard_path %>
+    </div>
+  </div>
+</body>
+</html>
