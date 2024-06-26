@@ -1,0 +1,13 @@
+<h1 class="projects">My Projects</h1>
+<%= link_to 'New Project', new_project_path, class: 'btn btn-primary' %>
+<ul class="projects">
+  <% @projects.each do |project| %>
+    <li>
+      <%= link_to project.title, project %>
+      <%= link_to 'Edit', edit_project_path(project) %>
+      <%= link_to 'Delete', project_path(project), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+      <%= link_to "View Tasks", project_tasks_path(project) %>
+    </li>
+  <% end %>
+  <%= link_to 'Back to Start Page', root_path, class: 'btn' %>  <!-- Back to Start Page button -->
+</ul>
